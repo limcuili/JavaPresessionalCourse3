@@ -24,15 +24,28 @@ class WordCount {
                 prevCharIsWhitespace = false;
             }
         }
-        System.out.println("word count = " + (wordCount + 1));
+
+        boolean allIsWhitespace = true;
+        for (int j = 0; j < text.length(); j++) {
+            if (text.charAt(j) != ' ') {
+                allIsWhitespace = false;
+            }
+        }
+
+        if (allIsWhitespace) {
+            System.out.println("word count = 0");
+        } else {
+            System.out.println("word count = " + (wordCount + 1));
+        }
+
     }
 
 }
 
 /*
+eg. java WordCount "    " >> word count = 0
 eg. java WordCount "Hello world" >> word count = 2
 eg. java WordCount "Hello world ?" >> word count = 3
 eg. java WordCount "Hello world ? " >> word count = 3
 HOWEVER eg. java WordCount " Hello world ? " >> word count = 4 (note the leading space)
-ALSO, this program does not take into account an empty string.
 */
